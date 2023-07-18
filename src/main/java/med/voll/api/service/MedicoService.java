@@ -22,8 +22,10 @@ public class MedicoService {
 		return repository.save(new Medico(dados));
 	}
 	
-	public Page<DadosListagemMedico> findAll(Pageable paginacao) {
-		return repository.findAll(paginacao).map(DadosListagemMedico::new);
+	public Page<DadosListagemMedico> findAllByAtivoTrue(Pageable paginacao) {
+		return repository.
+				findAllByAtivoTrue(paginacao).
+				map(DadosListagemMedico::new);
 	}
 	
 	public Medico getReferenceById(Long id) {
