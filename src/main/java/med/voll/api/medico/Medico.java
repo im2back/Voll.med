@@ -12,10 +12,12 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import med.voll.api.endereco.Endereco;
 
 @Table(name="medicos")
 @Entity(name= "Medico")
+@Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +31,11 @@ public class Medico {
     private String email;
 	private String telefone;
     private String crm;
+    @Enumerated(EnumType.STRING)
+    private Especialidade especialidade;
+    
+    @Embedded	
+    private Endereco endereco;
     
 	public Medico(DadosCadastroMedico dados) {
         this.nome = dados.nome();
@@ -39,13 +46,20 @@ public class Medico {
         this.endereco = new Endereco(dados.endereco());
 	}
     
+    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+
+    }
     
     
-    
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
-    
-    @Embedded	
-    private Endereco endereco;
+
 
 }

@@ -18,13 +18,19 @@ public class MedicoService {
 
 	
 	public Medico insert(DadosCadastroMedico dados) {
+		 
 		return repository.save(new Medico(dados));
 	}
 	
 	public Page<DadosListagemMedico> findAll(Pageable paginacao) {
 		return repository.findAll(paginacao).map(DadosListagemMedico::new);
 	}
-
 	
+	public Medico getReferenceById(Long id) {
+		return repository.getReferenceById(id);
+		
+	}
+
+
 	
 }
