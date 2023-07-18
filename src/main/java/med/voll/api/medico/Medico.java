@@ -36,8 +36,10 @@ public class Medico {
     
     @Embedded	
     private Endereco endereco;
+    private boolean ativo;
     
 	public Medico(DadosCadastroMedico dados) {
+		this.ativo = true;
         this.nome = dados.nome();
         this.telefone = dados.telefone();
         this.email = dados.email();
