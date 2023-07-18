@@ -21,10 +21,19 @@ public class PacienteService {
 		return repository.save(new Paciente(dados));
 	}
 	
+	
 	public Page<DadosListagemPaciente> findAllByAtivoTrue(Pageable paginacao) {
 		return repository.
 				findAllByAtivoTrue(paginacao).
 				map(DadosListagemPaciente::new);
 	}
 
+	public Paciente getReferenceById(Long id) {
+		return repository.getReferenceById(id);
+		
+	}
+	
+	
 }
+
+
