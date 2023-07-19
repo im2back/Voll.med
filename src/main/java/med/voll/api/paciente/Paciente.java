@@ -51,11 +51,14 @@ public class Paciente {
 	        }
 
 	    }
+<<<<<<< HEAD
 	    
 		public void excluir() {
 			this.ativo = false;
 			
 		}
+=======
+>>>>>>> f9b8145151f4eb4b2cec62b49c6d6e1db262fdf2
 	
 
 }
