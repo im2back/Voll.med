@@ -34,21 +34,22 @@ public class MedicoController {
 	@PostMapping
 	@Transactional
 	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
-	
-		 var medico = service.save(dados); 
-		 
-		 var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();		
-		 
-		 return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
-		
+
+		var medico = service.save(dados);
+
+		var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+
+		return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
+
 	}
 
 	@GetMapping
-	public ResponseEntity <Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
+	public ResponseEntity<Page<DadosListagemMedico>> listar(
+			@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
 		var page = service.findAllByAtivoTrue(paginacao);
-		 return ResponseEntity.ok(page);
+		return ResponseEntity.ok(page);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	@PutMapping
 	@Transactional
@@ -56,32 +57,27 @@ public class MedicoController {
 		var medico = service.getReferenceById(dados.id());
 		medico.atualizarInformacoes(dados);
 		return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
-		
+
 	}
+
 	@SuppressWarnings("rawtypes")
 	@DeleteMapping(value = "/{id}")
 	@Transactional
-	public  ResponseEntity excluir(@PathVariable Long id){
+	public ResponseEntity excluir(@PathVariable Long id) {
 		var medico = service.getReferenceById(id);
 		medico.excluir();
-		
+
 		return ResponseEntity.noContent().build();
-				}
+	}
 
+
+
+	@SuppressWarnings("rawtypes")
+	@GetMapping(value = "/{id}")
+	public  ResponseEntity detalhar(@PathVariable Long id){
+		
+		var medico = service.getReferenceById(id);
+		
+		return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+			}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
