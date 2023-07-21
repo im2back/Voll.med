@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import jakarta.validation.Valid;
 import med.voll.api.paciente.DadosAtualizacaoPaciente;
 import med.voll.api.paciente.DadosCadastroPaciente;
+import med.voll.api.paciente.DadosDetalhamentoPaciente;
 import med.voll.api.paciente.DadosListagemPaciente;
 import med.voll.api.service.PacienteService;
 
@@ -27,35 +30,53 @@ public class PacienteController {
 	@Autowired
     private PacienteService service;
 	
+	
+	@SuppressWarnings("rawtypes")
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastroPaciente dados) {
-		service.insert(dados);
+	public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriBuilder) {
+		var paciente = service.insert(dados);
+		
+		var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(paciente.getId()).toUri();
+		
+		return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
 	}
 	
 	@GetMapping
-	public Page<DadosListagemPaciente> listar(@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
-		return service.findAllByAtivoTrue(paginacao);
+	public ResponseEntity <Page<DadosListagemPaciente>> listar(@PageableDefault(size = 10, sort = { "nome" }) Pageable paginacao) {
+		var page = service.findAllByAtivoTrue(paginacao);
+		return ResponseEntity.ok(page);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@PutMapping
 	@Transactional
-	public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
+	public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
 		var paciente = service.getReferenceById(dados.id());
-		
 		paciente.atualizarInformacoes(dados);
-		
+		return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));			
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@DeleteMapping(value = "/{id}")
 	@Transactional
-	public  void excluir(@PathVariable Long id){
+	public  ResponseEntity excluir(@PathVariable Long id){
 		var paciente = service.getReferenceById(id);
 		paciente.excluir();
-	
+		
+	return ResponseEntity.noContent().build();
 	}
 	
+	@SuppressWarnings("rawtypes")
+	@GetMapping(value = "/{id}")
+	public  ResponseEntity detalhar(@PathVariable Long id){
+		
+		var paciente = service.getReferenceById(id);
+			
+		return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
+			}
+
 	
 
 

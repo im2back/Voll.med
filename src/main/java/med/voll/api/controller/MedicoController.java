@@ -49,6 +49,7 @@ public class MedicoController {
 		var page = service.findAllByAtivoTrue(paginacao);
 		return ResponseEntity.ok(page);
 	}
+	
 
 	@SuppressWarnings("rawtypes")
 	@PutMapping
