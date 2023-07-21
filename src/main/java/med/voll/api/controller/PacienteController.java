@@ -46,8 +46,8 @@ public class PacienteController {
 		paciente.atualizarInformacoes(dados);
 		
 	}
-<<<<<<< HEAD
-	
+
+
 	@DeleteMapping(value = "/{id}")
 	@Transactional
 	public  void excluir(@PathVariable Long id){
@@ -57,7 +57,7 @@ public class PacienteController {
 	}
 	
 	
-=======
->>>>>>> f9b8145151f4eb4b2cec62b49c6d6e1db262fdf2
+
+
 	
 }

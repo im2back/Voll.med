@@ -17,9 +17,9 @@ public class MedicoService {
 	private MedicoRepository repository;
 
 	
-	public Medico insert(DadosCadastroMedico dados) {
-		 
-		return repository.save(new Medico(dados));
+	public Medico save(DadosCadastroMedico dados) {
+		 Medico medico = new Medico(dados);
+		return repository.save(medico);
 	}
 	
 	public Page<DadosListagemMedico> findAllByAtivoTrue(Pageable paginacao) {
@@ -36,6 +36,8 @@ public class MedicoService {
 	public void delete(Long id) { 
 		 repository.deleteById(id);
 		                                      }
+	
+	
 
 	
 }
