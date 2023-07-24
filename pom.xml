@@ -19,7 +19,7 @@
 		<java.version>17</java.version>
 	</properties>
 	
-		<dependencies>
+	<dependencies>
 			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -66,10 +66,10 @@
             <scope>test</scope>
 		</dependency>	
     	
-   		 <dependency>
-     		 <groupId>org.flywaydb</groupId>
-     		 <artifactId>flyway-core</artifactId>
-    	 </dependency>
+   		<dependency>
+     		<groupId>org.flywaydb</groupId>
+     		<artifactId>flyway-core</artifactId>
+    	</dependency>
     	 
     	<dependency>
       		<groupId>org.flywaydb</groupId>
@@ -82,8 +82,13 @@
      		<scope>runtime</scope>
    		 </dependency>
    		 
-    	
-		</dependencies>
+   		 <dependency>
+  			<groupId>com.auth0</groupId>
+  			<artifactId>java-jwt</artifactId>
+ 			<version>4.2.1</version>
+		 </dependency>
+   		 
+    </dependencies>
 
 	<build>
 		<plugins>
