@@ -12,10 +12,9 @@ import jakarta.persistence.EntityNotFoundException;
 public class TratadorDeErros {
 
 
-	@SuppressWarnings("rawtypes")
-	@ExceptionHandler(EntityNotFoundException.class)
-	
-public ResponseEntity tratarErro404() {
+@SuppressWarnings("rawtypes")
+@ExceptionHandler(EntityNotFoundException.class)
+	public ResponseEntity tratarErro404() {
 		
 		return ResponseEntity.notFound().build();
 	}
@@ -29,14 +28,7 @@ public ResponseEntity tratarErro400(MethodArgumentNotValidException ex) {
 		return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
 	}
 
-/*@SuppressWarnings("rawtypes")
-@ExceptionHandler(DataIntegrityViolationException.class)
-public ResponseEntity tratarErro500(DataIntegrityViolationException ex) {
-	
-	
-		
-		return ResponseEntity.badRequest().build();
-	}*/
+
 
 
 
