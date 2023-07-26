@@ -1,11 +1,14 @@
 package med.voll.api.repositories;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
+import med.voll.api.medico.Especialidade;
 import med.voll.api.medico.Medico;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
@@ -15,6 +18,25 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	   List<Medico> findByCrm(String crm);
 	   
 	   List<Medico> findByEmail(String email);
+
+	   
+	   
+	 @Query("""
+	 		select m from Medico m
+                where
+                m.ativo = 1
+                and
+                m.especialidade = :especialidade
+                and
+                m.id not in(
+                        select c.medico.id from Consulta c
+                        where
+                        c.data = :data
+                )
+                order by rand()
+                limit 1		
+	 		""")
+	Medico escolherMedicoAleatorioLivreNaData(Especialidade especialidade, LocalDateTime data);
 	
 	}
 	
