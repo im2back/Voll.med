@@ -20,6 +20,7 @@ public class ConsultaController {
 	@Autowired
 	private ConsultaService service;
 
+	@SuppressWarnings("rawtypes")
 	@PostMapping
 	@Transactional
 	public ResponseEntity agendar(@RequestBody @Valid DadosAgendamentoConsulta dados) {
