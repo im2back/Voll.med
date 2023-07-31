@@ -28,7 +28,13 @@ public ResponseEntity tratarErro400(MethodArgumentNotValidException ex) {
 		return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
 	}
 
-
+@SuppressWarnings("rawtypes")
+@ExceptionHandler(ValidacaoException.class)
+public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException ex) {
+		
+		
+		return ResponseEntity.badRequest().body(ex.getMessage());
+	}
 
 
 

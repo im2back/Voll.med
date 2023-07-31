@@ -18,7 +18,7 @@ private PacienteRepository repository;
 		
 		var pacienteEstaAtivo = repository.findAtivoById(dados.idPaciente());
 		if(!pacienteEstaAtivo) {
-			throw new ValidacaoException("Consulta não pode ser agendada com paciente intativo");
+			throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo");
 		}
 		
 	}

@@ -9,7 +9,7 @@ import med.voll.api.repositories.MedicoRepository;
 @Component
 public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsultas {
 
-	@Autowired
+@Autowired
 private MedicoRepository repository;
 	
 	

@@ -15,16 +15,15 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
 	Page<Medico> findAllByAtivoTrue(Pageable paginacao);
 	
-	   List<Medico> findByCrm(String crm);
+	List<Medico> findByCrm(String crm);
 	   
-	   List<Medico> findByEmail(String email);
+	List<Medico> findByEmail(String email);
 
-	   
-	   
+	   	   
 	 @Query("""
 	 		select m from Medico m
                 where
-                m.ativo = 1
+                m.ativo = true
                 and
                 m.especialidade = :especialidade
                 and
@@ -46,7 +45,7 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
 	 		select m.ativo
 	 		from Medico m
 	 		where
-	 		m.id = :id
+	 		m.id = :idMedico
 			 """)
 	Boolean findAtivoById(Long idMedico);
 	

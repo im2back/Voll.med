@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import med.voll.api.consulta.Consulta;
 import med.voll.api.consulta.DadosAgendamentoConsulta;
+import med.voll.api.consulta.DadosDetalhamentoConsulta;
 import med.voll.api.consulta.validacoes.ValidadorAgendamentoDeConsultas;
 import med.voll.api.infra.exception.ValidacaoException;
 import med.voll.api.medico.Medico;
@@ -29,9 +30,9 @@ public class ConsultaService {
     @Autowired
     private List<ValidadorAgendamentoDeConsultas> validadores;
     
-	public void agendar(DadosAgendamentoConsulta dados) {
+	public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados) {
 		
-		validadores.forEach(v -> v.validar(dados));
+		
 		
 		if(!pacienteRepository.existsById(dados.idPaciente())) {
 			throw new ValidacaoException("Id do paciente informado não existe");
@@ -40,10 +41,17 @@ public class ConsultaService {
 			throw new ValidacaoException("Id do medico informado não existe");
 		}
 		
+		validadores.forEach(v -> v.validar(dados));
+		
 		 	var paciente = pacienteRepository.getReferenceById(dados.idPaciente());		 
 	        var medico = escolherMedico(dados);
+	        if (medico == null) {
+	            throw new ValidacaoException("Não existe médico disponível nessa data!");
+	        }
 	        var consulta = new Consulta(null, medico, paciente, dados.data());
 	        repository.save(consulta);
+	        
+	        return  new DadosDetalhamentoConsulta(consulta);
 	}
 	
 	
