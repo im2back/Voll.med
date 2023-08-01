@@ -1,4 +1,4 @@
-package med.voll.api.consulta.validacoes;
+package med.voll.api.consulta.validacoes.agendamento;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
