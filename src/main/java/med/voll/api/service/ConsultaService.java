@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import med.voll.api.consulta.Consulta;
 import med.voll.api.consulta.DadosAgendamentoConsulta;
+import med.voll.api.consulta.DadosCancelamentoConsulta;
 import med.voll.api.consulta.DadosDetalhamentoConsulta;
 import med.voll.api.consulta.validacoes.ValidadorAgendamentoDeConsultas;
 import med.voll.api.infra.exception.ValidacaoException;
@@ -48,7 +49,7 @@ public class ConsultaService {
 	        if (medico == null) {
 	            throw new ValidacaoException("Não existe médico disponível nessa data!");
 	        }
-	        var consulta = new Consulta(null, medico, paciente, dados.data());
+	        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
 	        repository.save(consulta);
 	        
 	        return  new DadosDetalhamentoConsulta(consulta);
@@ -68,7 +69,14 @@ public class ConsultaService {
 	    return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(),dados.data());
 	}
 	
-	
+	public void cancelarConsulta(DadosCancelamentoConsulta dados) {
+        if (!repository.existsById(dados.idConsulta())) {
+            throw new ValidacaoException("Id da consulta informado não existe!");
+        }
+
+        var consulta = repository.getReferenceById(dados.idConsulta());
+        consulta.cancelar(dados.motivo());
+	}
 	
 	
 	
