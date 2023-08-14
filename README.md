@@ -26,6 +26,9 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/GitHub-white.svg?style=flat&logo=github&logoColor=black" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Maven-white.svg?style=flat&logo=apachemaven&logoColor=darkgreen" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/JPA-Hibernate-darkgreen.svg?style=flat&logo=hibernate&logoColor=white" target="_blank"></a>
+
+Documentação da API feita com o Swagger. http://localhost:8080/swagger-ui/index.html
+
 ## Implantação em produção
 - Back end: Heroku
 - Banco de dados: MySql
@@ -33,7 +36,9 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 11
+### Pré-requisitos: 
+Java 11 , MySql database
+
 
 ```bash
 # clonar repositório
