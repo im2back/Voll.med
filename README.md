@@ -13,11 +13,11 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 ## Modelo conceitual
 
 ![Mapa conceitual](https://github.com/im2back/Voll.med/assets/117541466/661b5dad-fdf7-4cfe-8694-565d7ece05a2)
+#
+#
+#
+# Tecnologias utilizadas - Back end
 
-
-
-# Tecnologias utilizadas
-## Back end
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Java-blue.svg?style=flat&logo=coffeescript&logoColor=white" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/SpringBoot-white.svg?style=flat&logo=springboot&logoColor=green" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/PostMan-white.svg?style=flat&logo=postman&logoColor=red" target="_blank"></a>
@@ -26,8 +26,13 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/GitHub-white.svg?style=flat&logo=github&logoColor=black" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Maven-white.svg?style=flat&logo=apachemaven&logoColor=darkgreen" target="_blank"></a>
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/JPA-Hibernate-darkgreen.svg?style=flat&logo=hibernate&logoColor=white" target="_blank"></a>
+#
+#
+### Documentação da API feita com o Swagger. http://localhost:8080/swagger-ui/index.html
 
-Documentação da API feita com o Swagger. http://localhost:8080/swagger-ui/index.html
+![image](https://github.com/im2back/Voll.med/assets/117541466/3cd1c01f-2422-457b-aa15-eaaf9233a0a1)
+
+
 
 ## Implantação em produção
 - Back end: Heroku
