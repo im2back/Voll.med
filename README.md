@@ -38,9 +38,8 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 - Back end: Heroku
 - Banco de dados: MySql
 
-# Como executar o projeto
+# Como executar o projeto - Back end
 
-## Back end
 ### Pré-requisitos: 
 Java 11 , MySql database
 
