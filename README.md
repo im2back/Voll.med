@@ -11,7 +11,10 @@ Através da aplicação o cliente será capaz de agendar/cancelar consultas alé
 precisará realizar um cadastro para desta forma ter acesso ao painel de usuário e ter acesso as requisições, a segurança foi feita com o SpringSecurity(JWT).
 
 ## Modelo conceitual
-Em Breve...
+
+![Mapa conceitual](https://github.com/im2back/Voll.med/assets/117541466/661b5dad-fdf7-4cfe-8694-565d7ece05a2)
+
+
 
 # Tecnologias utilizadas
 ## Back end
