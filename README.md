@@ -1,6 +1,6 @@
 # Voll.med
 API para gerenciamento de consultas em uma clinica médica (Rest API).
-# Voll.med - License
+## Voll.med - License
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/im2back/Voll.med/blob/main/LICENSE) 
 
 # Sobre o projeto
