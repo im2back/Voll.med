@@ -28,7 +28,7 @@ precisará realizar um cadastro para desta forma ter acesso ao painel de usuári
 <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/JPA-Hibernate-darkgreen.svg?style=flat&logo=hibernate&logoColor=white" target="_blank"></a>
 #
 #
-### Documentação da API feita com o Swagger. http://localhost:8080/swagger-ui/index.html
+### Documentação da API feita utilizando o Swagger. http://localhost:8080/swagger-ui/index.html
 
 ![image](https://github.com/im2back/Voll.med/assets/117541466/3cd1c01f-2422-457b-aa15-eaaf9233a0a1)
 
