@@ -10,7 +10,7 @@ Voll.med é uma aplicação construida com finalidade de gerenciar uma clinica m
 Através da aplicação o cliente será capaz de agendar/cancelar consultas além de poder escolher um determinado médico/especialidade conforme sua preferencia. Para utilizar esse serviço o cliente 
 precisará realizar um cadastro para desta forma ter acesso ao painel de usuário e ter acesso as requisições, a segurança foi feita com o SpringSecurity(JWT).
 
-## Modelo conceitual
+## Domain Model
 
 ![Mapa conceitual](https://github.com/im2back/Voll.med/assets/117541466/661b5dad-fdf7-4cfe-8694-565d7ece05a2)
 #
