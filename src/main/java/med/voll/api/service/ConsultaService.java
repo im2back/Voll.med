@@ -12,7 +12,7 @@ import med.voll.api.consulta.DadosDetalhamentoConsulta;
 import med.voll.api.consulta.validacoes.agendamento.ValidadorAgendamentoDeConsultas;
 import med.voll.api.consulta.validacoes.cancelamento.ValidadorCancelamentoConsulta;
 import med.voll.api.infra.exception.ValidacaoException;
-import med.voll.api.medico.Medico;
+import med.voll.api.model.medico.Medico;
 import med.voll.api.repositories.ConsultaRepository;
 import med.voll.api.repositories.MedicoRepository;
 import med.voll.api.repositories.PacienteRepository;

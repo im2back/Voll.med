@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import med.voll.api.consulta.DadosAgendamentoConsulta;
 import med.voll.api.consulta.DadosDetalhamentoConsulta;
-import med.voll.api.medico.Especialidade;
+import med.voll.api.model.medico.Especialidade;
 import med.voll.api.service.ConsultaService;
 
 @SpringBootTest

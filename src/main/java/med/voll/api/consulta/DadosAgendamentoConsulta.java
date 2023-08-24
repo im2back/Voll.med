@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
-import med.voll.api.medico.Especialidade;
+import med.voll.api.model.medico.Especialidade;
 
 public record DadosAgendamentoConsulta(
 		Long idMedico,

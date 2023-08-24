@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import med.voll.api.medico.DadosCadastroMedico;
-import med.voll.api.medico.DadosListagemMedico;
-import med.voll.api.medico.Medico;
+import med.voll.api.model.medico.DadosCadastroMedico;
+import med.voll.api.model.medico.DadosListagemMedico;
+import med.voll.api.model.medico.Medico;
 import med.voll.api.repositories.MedicoRepository;
 
 @Service

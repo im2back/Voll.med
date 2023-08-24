@@ -18,10 +18,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import med.voll.api.medico.DadosAtualizacaoMedico;
-import med.voll.api.medico.DadosCadastroMedico;
-import med.voll.api.medico.DadosDetalhamentoMedico;
-import med.voll.api.medico.DadosListagemMedico;
+import med.voll.api.model.medico.DadosAtualizacaoMedico;
+import med.voll.api.model.medico.DadosCadastroMedico;
+import med.voll.api.model.medico.DadosDetalhamentoMedico;
+import med.voll.api.model.medico.DadosListagemMedico;
 import med.voll.api.service.MedicoService;
 @SecurityRequirement(name = "bearer-key")
 @RestController

@@ -14,8 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.medico.Medico;
-import med.voll.api.paciente.Paciente;
+import med.voll.api.model.medico.Medico;
+import med.voll.api.model.paciente.Paciente;
 
 @Table(name = "consultas")
 @Entity(name = "Consulta")

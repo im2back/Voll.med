@@ -16,12 +16,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 
 import med.voll.api.consulta.Consulta;
-import med.voll.api.endereco.DadosEndereco;
-import med.voll.api.medico.DadosCadastroMedico;
-import med.voll.api.medico.Especialidade;
-import med.voll.api.medico.Medico;
-import med.voll.api.paciente.DadosCadastroPaciente;
-import med.voll.api.paciente.Paciente;
+import med.voll.api.model.endereco.DadosEndereco;
+import med.voll.api.model.medico.DadosCadastroMedico;
+import med.voll.api.model.medico.Especialidade;
+import med.voll.api.model.medico.Medico;
+import med.voll.api.model.paciente.DadosCadastroPaciente;
+import med.voll.api.model.paciente.Paciente;
 
 @ActiveProfiles("test")
 @DataJpaTest
